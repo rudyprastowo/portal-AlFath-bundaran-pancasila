@@ -4,27 +4,15 @@ from datetime import datetime
 import io
 import requests
 
-# Menggunakan jembatan Web App URL Google Sheets Pak Rudy yang sudah aktif
+# URL Google Web App yang sudah Pak Rudy buat
 URL_GOOGLE_SHEETS = "https://google.com"
 
 # Konfigurasi Tampilan Tab Web Browser
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
-# --- GAYA DESAIN KUSTOM (ISLAMIC GREEN THEME) ---
-st.markdown("""
-    <style>
-    .main-title { font-size:30px !important; font-weight: bold; text-align: center; color: #1E4D2B; margin-bottom: 5px; }
-    .sub-title { font-size:16px !important; text-align: center; color: #444444; margin-bottom: 25px; font-style: italic; }
-    .section-header { font-size:20px !important; font-weight: bold; color: #1E4D2B; border-bottom: 2px solid #1E4D2B; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; }
-    .info-card { background-color: #F0F7F4; padding: 20px; border-radius: 10px; border-left: 6px solid #1E4D2B; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-    .tier-title { font-size:18px !important; font-weight: bold; color: #2E6B3E; margin-bottom: 5px; }
-    .footer-text { text-align: center; font-size: 12px; color: #888888; margin-top: 20px; border-top: 1px solid #eeeeee; padding-top: 15px; }
-    </style>
-""", unsafe_allowed_html=True)
-
 # --- HEADER UTAMA WEBSITE ---
-st.markdown('<div class="main-title">🕌 PORTAL INFORMASI & LAYANAN UMAT</div>', unsafe_allowed_html=True)
-st.markdown('<div class="sub-title">Kelompok Bundaran Pancasila - Pangkalan Bun, Kotawaringin Barat</div>', unsafe_allowed_html=True)
+st.title("🕌 PORTAL INFORMASI & LAYANAN UMAT")
+st.subheader("Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun")
 
 # --- MENU NAVIGASI BANNER UTAMA ---
 pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
@@ -39,60 +27,41 @@ pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
 # ==========================================
 if pilihan_menu == "🏠 Beranda & Agenda":
     st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahmi Jamaah Bundaran Pancasila", use_container_width=True)
-    st.markdown('<div class="section-header">📢 Maklumat & Jadwal Kegiatan Terdekat</div>', unsafe_allowed_html=True)
+    st.header("📢 Maklumat & Jadwal Kegiatan Terdekat")
     
-    st.markdown("""
-    <div class="info-card">
-        <h4>🗓️ Pengajian Rutin Majelis Taklim</h4>
-        <p><b>Hari / Waktu:</b> Setiap Hari Ahad Malam Senin (Ba'da Maghrib - Selesai)<br>
-        <b>Tempat:</b> Sekretariat Utama Kelompok Bundaran Pancasila, Pangkalan Bun<br>
-        <b>Materi Kajian:</b> Pendalaman Kitab Hadits Riyadhus Shalihin & Fiqih Praktis<br>
-        <i>*Terbuka untuk seluruh jamaah umum masyarakat Pangkalan Bun.</i></p>
-    </div>
-    <div class="info-card">
-        <h4>🍉 Gerakan Sedekah Jumat Berkah</h4>
-        <p>Mari salurkan infaq pangan terbaik Anda untuk didistribusikan berupa paket makanan berkah pasca Shalat Jumat kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Arut Selatan.</p>
-    </div>
-    """, unsafe_allowed_html=True)
+    st.info("🗓️ **Pengajian Rutin Majelis Taklim**\n\nHari / Waktu: Setiap Hari Ahad Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Sekretariat Utama Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Kajian: Pendalaman Kitab Hadits Riyadhus Shalihin & Fiqih Praktis\n\n*Terbuka untuk seluruh jamaah umum masyarakat Pangkalan Bun.")
+    st.success("🍉 **Gerakan Sedekah Jumat Berkah**\n\nMari salurkan infaq pangan terbaik Anda untuk didistribusikan berupa paket makanan berkah pasca Shalat Jumat kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Arut Selatan.")
 
 # ==========================================
 # MENU 2: BUKU DIGITAL PROGRAM KEGIATAN
 # ==========================================
 elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
-    st.markdown('<div class="section-header">📖 Buku Digital Panduan Program Kegiatan Pengajian</div>', unsafe_allowed_html=True)
+    st.header("📖 Buku Digital Panduan Program Kegiatan Pengajian")
     st.write("Berikut adalah kurikulum terpadu pembinaan generasi penerus dan jamaah Kelompok Bundaran Pancasila - Pangkalan Bun berdasarkan tingkatan umur:")
 
     with st.expander("👶 1. Kelompok PAUD / Anak Usia Dini (Usia 3 - 5 Tahun)"):
-        st.markdown('<div class="tier-title">🎯 Fokus: Pembentukan Karakter & Cinta Masjid</div>', unsafe_allowed_html=True)
-        st.write("""
-        *   **Materi Utama:** Pengenalan Huruf Hijaiyah metode Iqra Visual, Adab harian (Adab makan, tidur, dan orang tua), serta hafalan doa-doa pendek harian.
-        *   **Metode Pembelajaran:** Belajar sambil bermain, mewarnai kaligrafi, dan kisah-hikayat nabi interaktif menggunakan media proyektor digital.
-        *   **Jadwal Kegiatan:** Setiap Hari Sabtu sore pukul 15.30 - 17.00 WIB di Aula PAUD Sekretariat Pancasila.
-        """)
+        st.subheader("🎯 Fokus: Pembentukan Karakter & Cinta Masjid")
+        st.write("- **Materi Utama:** Pengenalan Huruf Hijaiyah metode Iqra Visual, Adab harian (Adab makan, tidur, dan orang tua), serta hafalan doa-doa pendek harian.")
+        st.write("- **Metode Pembelajaran:** Belajar sambil bermain, mewarnai kaligrafi, dan kisah-kisah nabi interaktif menggunakan media proyektor digital.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu sore pukul 15.30 - 17.00 WIB di Aula PAUD Sekretariat Pancasila.")
 
     with st.expander("🧒 2. Kelompok Cabe Rawit / Sekolah Dasar (Usia 6 - 12 Tahun)"):
-        st.markdown('<div class="tier-title">🎯 Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah</div>', unsafe_allowed_html=True)
-        st.write("""
-        *   **Materi Utama:** Target khatam Iqra menuju Al-Quran tajwid praktis, hafalan Juz Amma (Juz 30), tata cara berwudhu, dan gerakan shalat fardhu secara mandiri.
-        *   **Program Unggulan:** Pesantren Kilat Liburan Sekolah dan Simulasi Manasik Haji Anak di area luar lapangan Bundaran Pancasila.
-        *   **Jadwal Kegiatan:** Setiap Hari Senin s/d Kamis pukul 16.00 - 17.15 WIB (TPA Sore).
-        """)
+        st.subheader("🎯 Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah")
+        st.write("- **Materi Utama:** Target khatam Iqra menuju Al-Quran tajwid praktis, hafalan Juz Amma (Juz 30), tata cara berwudhu, dan gerakan shalat fardhu secara mandiri.")
+        st.write("- **Program Unggulan:** Pesantren Kilat Liburan Sekolah dan Simulasi Manasik Haji Anak di area luar lapangan Bundaran Pancasila.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Senin s/d Kamis pukul 16.00 - 17.15 WIB (TPA Sore).")
 
     with st.expander("🧑 3. Kelompok Remaja / SMP & SMA (Usia 13 - 19 Tahun)"):
-        st.markdown('<div class="tier-title">🎯 Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan</div>', unsafe_allowed_html=True)
-        st.write("""
-        *   **Materi Utama:** Kajian Akidah Islamiyah anti-radikalisme, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.
-        *   **Program Unggulan:** Kegiatan Pencinta Alam (Camping Religi), Olahraga Memanah/Futsal Berjamaah, serta pelatihan kepengurusan Majelis Taklim Remaja.
-        *   **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Posko Utama.
-        """)
+        st.subheader("🎯 Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan")
+        st.write("- **Materi Utama:** Kajian Akidah Islamiyah anti-radikalisme, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.")
+        st.write("- **Program Unggulan:** Kegiatan Pencinta Alam (Camping Religi), Olahraga Memanah/Futsal Berjamaah, serta pelatihan kepengurusan Majelis Taklim Remaja.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Posko Utama.")
 
     with st.expander("🧕 4. Kelompok Usia Mandiri / Mahasiswa, Pekerja & Orang Tua"):
-        st.markdown('<div class="tier-title">🎯 Fokus: Kemandirian Ekonomi Syariah & Pembinaan Keluarga Sakinah</div>', unsafe_allowed_html=True)
-        st.write("""
-        *   **Materi Utama:** Pendalaman Kitab Hadits Shahih Bukhari-Muslim, Fiqih Muamalah (Bebas Riba & Perdagangan Syariah), serta Manajemen Rumah Tangga Islami (Parenting Jamaah).
-        *   **Program Unggulan:** Workshop Kewirausahaan Umat, Baitul Maal Kelompok (Dana Usaha Mandiri), dan Konseling Keluarga Islami.
-        *   **Jadwal Kegiatan:** Setiap Hari Ahad Pagi (Pukul 08.00 - 10.00 WIB) & Ahad Malam Senin.
-        """)
+        st.subheader("🎯 Fokus: Kemandirian Ekonomi Syariah & Pembinaan Keluarga Sakinah")
+        st.write("- **Materi Utama:** Pendalaman Kitab Hadits Shahih Bukhari-Muslim, Fiqih Muamalah (Bebas Riba & Perdagangan Syariah), serta Manajemen Rumah Tangga Islami (Parenting Jamaah).")
+        st.write("- **Program Unggulan:** Workshop Kewirausahaan Umat, Baitul Maal Kelompok (Dana Usaha Mandiri), dan Konseling Keluarga Islami.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Ahad Pagi (Pukul 08.00 - 10.00 WIB) & Ahad Malam Senin.")
 
     st.write("---")
     st.subheader("📥 Unduh Dokumen Kurikulum Resmi")
@@ -108,14 +77,14 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
 # MENU 3: SEKTOR KHIDMAT SOSIAL (AIR MINUM GRATIS)
 # ==========================================
 elif pilihan_menu == "🚰 Sedekah Air Minum":
-    st.markdown('<div class="section-header">🚰 Fasilitas Penyediaan Air Minum Gratis</div>', unsafe_allowed_html=True)
+    st.header("🚰 Fasilitas Penyediaan Air Minum Gratis")
     st.write("Rasulullah SAW bersabda: *'Sedekah apa yang paling utama?' Beliau menjawab: 'Air minum.'* (HR. Abu Daud)")
     st.info("Sebagai wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
     
     col_info1, col_info2 = st.columns(2)
     with col_info1:
         st.subheader("📍 Lokasi Posko Depot")
-        st.write("Area Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat (Kalimantan Tengah).")
+        st.write("Area Bundaran Pancasila, Kelurahan Sidorejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat (Kalimantan Tengah).")
     with col_info2:
         st.subheader("🕒 Waktu Pelayanan")
         st.write("Setiap hari Senin s/d Ahad, pukul 06.00 WIB hingga 21.00 WIB.")
@@ -147,7 +116,14 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
 # MENU 4: LAYANAN HUBUNGI HUMAS
 # ==========================================
 elif pilihan_menu == "📞 Hubungi Humas":
-    st.markdown('<div class="section-header">📞 Pusat Kontak Layanan & Informasi Umat</div>', unsafe_allowed_html=True)
-    st.markdown("""
-    <div class="info-card">
-        <p><b>📍 Alamat Sekretariat Fisik:</b><br>
+    st.header("📞 Pusat Kontak Layanan & Informasi Umat")
+    st.write("**📍 Alamat Sekretariat Fisik:**")
+    st.write("Kawasan Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
+    st.write("**📱 WhatsApp Humas Resmi:**")
+    st.write("+62 812-3456-7890 (Humas Kelompok Al-Fath)")
+    st.write("**✉️ Email Resmi:**")
+    st.write("info@pengajian-pancasila.org")
+
+# --- FOOTER HAK CIPTA ---
+st.write("---")
+st.caption("© 2026 Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun. All Rights Reserved.")
