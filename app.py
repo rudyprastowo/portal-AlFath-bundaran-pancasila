@@ -10,17 +10,23 @@ URL_GOOGLE_SHEETS = "https://google.com"
 # Konfigurasi Tampilan Tab Web Browser
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
-# ==========================================
-# GAYA DESAIN PREMIUM DAN LOGO GARUDA POJOK KANAN ATAS
-# ==========================================
-# Menggunakan struktur satu baris yang sangat rapat agar terhindar dari TypeError pembacaan string
-st.markdown('<div style="position: absolute; top: -60px; right: 10px; z-index: 999;"><div style="width: 85px; height: 85px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); border: 3px solid #D4AF37; display: flex; align-items: center; justify-content: center;"><img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;" alt="Garuda Pancasila"></div></div>', unsafe_allowed_html=True)
+# --- HEADER UTAMA WEBSITE DENGAN KOLOM GARUDA SEJAJAR ---
+col_judul, col_garuda = st.columns([5, 1])
 
-st.markdown('<style>.main-title { font-family: "Georgia", serif; font-size: 26px !important; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px; } .sub-title { font-family: "Helvetica Neue", sans-serif; font-size: 14px !important; color: #D4AF37; font-weight: 600; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }</style>', unsafe_allowed_html=True)
+with col_judul:
+    st.markdown('<style>.main-title { font-family: "Georgia", serif; font-size: 26px !important; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px; } .sub-title { font-family: "Helvetica Neue", sans-serif; font-size: 14px !important; color: #D4AF37; font-weight: 600; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }</style>', unsafe_allowed_html=True)
+    st.markdown('<div class="main-title">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</div>', unsafe_allowed_html=True)
+    st.markdown('<div class="sub-title">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</div>', unsafe_allowed_html=True)
 
-# --- HEADER UTAMA WEBSITE ---
-st.markdown('<div class="main-title">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</div>', unsafe_allowed_html=True)
-st.markdown('<div class="sub-title">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</div>', unsafe_allowed_html=True)
+with col_garuda:
+    # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi
+    st.markdown("""
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+            <div style="width: 80px; height: 85px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); border: 3px solid #D4AF37; display: flex; align-items: center; justify-content: center;">
+                <img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;">
+            </div>
+        </div>
+    """, unsafe_allowed_html=True)
 
 # --- MENU NAVIGASI BANNER UTAMA ---
 pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
@@ -86,7 +92,7 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
 elif pilihan_menu == "🚰 Shodaqoh":
     st.header("🚰 Fasilitas Penyediaan Air Minum Gratis & Shodaqoh Umat")
     st.write("Rasulullah SAW bersabda: *'Sedekah apa yang paling utama?' Beliau menjawab: 'Air minum.'* (HR. Abu Daud)")
-    st.info("Asal wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
+    st.info("Sebagai wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
     
     col_info1, col_info2 = st.columns(2)
     with col_info1:
@@ -107,7 +113,8 @@ elif pilihan_menu == "🚰 Shodaqoh":
         if st.form_submit_button("Kirim Pengajuan"):
             if nama_pemohon and whatsapp:
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
-                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, Visualisasi, jumlah_butuh]}
+                # FIX: Variabel diperbaiki menjadi waktu_kirim (bukan Visualisasi) agar form sukses terkirim ke Sheets
+                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
                     if res.status_code == 200:
