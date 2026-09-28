@@ -10,9 +10,85 @@ URL_GOOGLE_SHEETS = "https://google.com"
 # Konfigurasi Tampilan Tab Web Browser
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
+# ==========================================
+# DESAIN PREMIUM, ELEGAN, DAN LAMBANG GARUDA POJOK KANAN ATAS
+# ==========================================
+st.markdown("""
+    <style>
+    /* Menyuntikkan Logo Garuda Pancasila Lingkaran Emas di Pojok Kanan Atas */
+    .garuda-container {
+        position: absolute;
+        top: -60px;
+        right: 10px;
+        z-index: 999;
+    }
+    .garuda-circle {
+        width: 85px;
+        height: 85px;
+        background: white;
+        border-radius: 50%;
+        padding: 5px;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        border: 3px solid #D4AF37; /* Aksen Bingkai Emas */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .garuda-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    /* Desain Tipografi Judul Elegan */
+    .main-title { 
+        font-family: 'Georgia', serif;
+        font-size: 28px !important; 
+        font-weight: 800; 
+        color: #1E4D2B; 
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
+    .sub-title { 
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 15px !important; 
+        color: #D4AF37; /* Subjudul Berwarna Emas Klasik */
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+    }
+    
+    /* Desain Kartu Informasi Mewah */
+    .luxury-card { 
+        background-color: #ffffff; 
+        padding: 24px; 
+        border-radius: 12px; 
+        border-left: 6px solid #1E4D2B; 
+        margin-bottom: 20px; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+        border-top: 1px solid #f1f1f1;
+        border-right: 1px solid #f1f1f1;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    .luxury-card h4 {
+        color: #1E4D2B;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    </style>
+    
+    <!-- Struktur HTML untuk Memasang Garuda -->
+    <div class="garuda-container">
+        <div class="garuda-circle">
+            <img class="garuda-img" src="https://wikimedia.org" alt="Garuda Pancasila">
+        </div>
+    </div>
+""", unsafe_allowed_html=True)
+
 # --- HEADER UTAMA WEBSITE ---
-st.title("🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA")
-st.subheader("Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun")
+st.markdown('<div class="main-title">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</div>', unsafe_allowed_html=True)
+st.markdown('<div class="sub-title">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</div>', unsafe_allowed_html=True)
 
 # --- MENU NAVIGASI BANNER UTAMA ---
 pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
@@ -64,12 +140,11 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
         st.write("- **Jadwal Kegiatan:** Setiap Hari Ahad Pagi (Pukul 08.00 - 10.00 WIB) & Ahad Malam Senin.")
 
     st.write("---")
-    st.subheader("📥 Unduh Dokumen Kurikulum Resmi")
+    st.subheader("📥 Unduh Dokumen Kurikulum")
     st.write("Anda dapat mengunduh ringkasan buku saku digital berformat teks PDF ini untuk disimpan di perangkat smartphone Anda:")
     
-    # FIX INDENTASI: Tombol link eksternal sekarang sudah sejajar 100% dengan teks di atasnya
     st.link_button(
-        label="📥 Download Buku Panduan Kurikulum Paud & Cabe Rawit(PDF)",
+        label="📥 Download Buku Panduan Kurikulum PAUD & Cabe Rawit (PDF)",
         url="https://drive.google.com/file/d/1vKmuUJZnNhne9BYxPDn-Wn1Jy7PlmK-9/view?usp=sharing"
     )
 
@@ -100,7 +175,7 @@ elif pilihan_menu == "🚰 Shodaqoh":
         if st.form_submit_button("Kirim Pengajuan"):
             if nama_pemohon and whatsapp:
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
-                payload = {"sheet": "Layanan_Air", "row": [wirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
+                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
                     if res.status_code == 200:
@@ -110,20 +185,3 @@ elif pilihan_menu == "🚰 Shodaqoh":
                 except:
                     st.error("Terjadi masalah jaringan internet.")
             else:
-                st.warning("Mohon isi kolom Nama dan Nomor WhatsApp Anda terlebih dahulu.")
-
-# ==========================================
-# MENU 4: LAYANAN HUBUNGI HUMAS
-# ==========================================
-elif pilihan_menu == "📞 Hubungi Humas":
-    st.header("📞 Pusat Kontak Layanan")
-    st.write("**📍 Alamat Sekretariat:**")
-    st.write("Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
-    st.write("**📱 WhatsApp Humas:**")
-    st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
-    st.write("**✉️ Email:**")
-    st.write("info@pengajian-alfath-bundaran-pancasila.org")
-
-# --- FOOTER HAK CIPTA ---
-st.write("---")
-st.caption("© 2026 Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun. All Rights Reserved.")
