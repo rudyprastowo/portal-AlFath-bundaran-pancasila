@@ -119,9 +119,9 @@ elif pilihan_menu == "📞 Hubungi Humas":
     st.header("📞 Pusat Kontak Layanan")
     st.write("**📍 Alamat Sekretariat:**")
     st.write("Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
-    st.write("**📱 WhatsApp Humas Resmi:**")
+    st.write("**📱 WhatsApp Humas:**")
     st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
-    st.write("**✉️ Email Resmi:**")
+    st.write("**✉️ Email:**")
     st.write("info@pengajian-alfath-bundaran-pancasila.org")
 
 # --- FOOTER HAK CIPTA ---
