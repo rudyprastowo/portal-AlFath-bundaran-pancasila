@@ -13,18 +13,18 @@ st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_i
 # ==========================================
 # HEADER UTAMA WEBSITE DENGAN KOLOM SEJAJAR (FIXED COLUMNS)
 # ==========================================
-# FIX: Memberikan angka parameter 2 kolom secara jelas agar terhindar dari TypeError
-col_judul, col_garuda = st.columns([4, 1])
+# FIX UTAMA: Memberikan parameter (2) secara tegas agar terhindar dari TypeError pembagian layar
+col_judul, col_garuda = st.columns(2)
 
 with col_judul:
     st.markdown('<h2 style="font-family: Georgia, serif; font-size: 24px; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px;">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</h2>', unsafe_allowed_html=True)
     st.markdown('<h5 style="font-family: Arial, sans-serif; font-size: 13px; color: #D4AF37; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</h5>', unsafe_allowed_html=True)
 
 with col_garuda:
-    # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi tanpa CSS Eksternal yang rawan eror
+    # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi secara stabil
     st.markdown("""
         <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
-            <div style="width: 75px; height: 75px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); border: 2.5px solid #D4AF37; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 80px; height: 80px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); border: 2.5px solid #D4AF37; display: flex; align-items: center; justify-content: center;">
                 <img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;">
             </div>
         </div>
