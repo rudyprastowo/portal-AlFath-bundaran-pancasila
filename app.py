@@ -11,14 +11,14 @@ URL_GOOGLE_SHEETS = "https://google.com"
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
 # --- HEADER UTAMA WEBSITE ---
-st.title("🕌 PORTAL INFORMASI & LAYANAN UMAT")
+st.title("🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA")
 st.subheader("Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun")
 
 # --- MENU NAVIGASI BANNER UTAMA ---
 pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
     "🏠 Beranda & Agenda", 
     "📖 Buku Digital Program Kegiatan",
-    "🚰 Sedekah Air Minum", 
+    "🚰 Shodaqoh", 
     "📞 Hubungi Humas"
 ])
 
@@ -26,11 +26,11 @@ pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
 # MENU 1: BERANDA & AGENDA KEGIATAN
 # ==========================================
 if pilihan_menu == "🏠 Beranda & Agenda":
-    st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahmi Jamaah Bundaran Pancasila", use_container_width=True)
-    st.header("📢 Maklumat & Jadwal Kegiatan Terdekat")
+    st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahim Jamaah Bundaran Pancasila", use_container_width=True)
+    st.header("📢 Pengumuman & Jadwal Kegiatan Terdekat")
     
-    st.info("🗓️ **Pengajian Rutin Majelis Taklim**\n\nHari / Waktu: Setiap Hari Ahad Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Sekretariat Utama Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Kajian: Pendalaman Kitab Hadits Riyadhus Shalihin & Fiqih Praktis\n\n*Terbuka untuk seluruh jamaah umum masyarakat Pangkalan Bun.")
-    st.success("🍉 **Gerakan Sedekah Jumat Berkah**\n\nMari salurkan infaq pangan terbaik Anda untuk didistribusikan berupa paket makanan berkah pasca Shalat Jumat kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Arut Selatan.")
+    st.info("🗓️ **Pengajian Rutin **\n\nHari / Waktu: Setiap Hari Ahad Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Sekretariat Utama Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Pengajian: Al-qur'an & Al-Hadith\n\n*Terbuka untuk seluruh jamaah dan simpatisan Pangkalan Bun.")
+    st.success("🍉 **Gerakan Shodaqoh**\n\nMari salurkan infaq dan shodaqoh terbaik Anda untuk didistribusikan berupa paket makanan dan yang lain kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Arut Selatan.")
 
 # ==========================================
 # MENU 2: BUKU DIGITAL PROGRAM KEGIATAN
@@ -41,23 +41,23 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
 
     with st.expander("👶 1. Kelompok PAUD / Anak Usia Dini (Usia 3 - 5 Tahun)"):
         st.subheader("🎯 Fokus: Pembentukan Karakter & Cinta Masjid")
-        st.write("- **Materi Utama:** Pengenalan Huruf Hijaiyah metode Iqra Visual, Adab harian (Adab makan, tidur, dan orang tua), serta hafalan doa-doa pendek harian.")
+        st.write("- **Materi Utama:** Pengenalan Huruf Hijaiyah metode Tilawaty Visual, Adab harian (Adab makan, tidur, dan orang tua), serta hafalan doa-doa pendek harian.")
         st.write("- **Metode Pembelajaran:** Belajar sambil bermain, mewarnai kaligrafi, dan kisah-kisah nabi interaktif menggunakan media proyektor digital.")
         st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu sore pukul 15.30 - 17.00 WIB di Aula PAUD Sekretariat Pancasila.")
 
     with st.expander("🧒 2. Kelompok Cabe Rawit / Sekolah Dasar (Usia 6 - 12 Tahun)"):
         st.subheader("🎯 Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah")
-        st.write("- **Materi Utama:** Target khatam Iqra menuju Al-Quran tajwid praktis, hafalan Juz Amma (Juz 30), tata cara berwudhu, dan gerakan shalat fardhu secara mandiri.")
+        st.write("- **Materi Utama:** Target khatam Tilawaty menuju Al-Quran tajwid praktis, hafalan Juz Amma (Juz 30), tata cara berwudhu, dan gerakan shalat fardhu secara mandiri.")
         st.write("- **Program Unggulan:** Pesantren Kilat Liburan Sekolah dan Simulasi Manasik Haji Anak di area luar lapangan Bundaran Pancasila.")
         st.write("- **Jadwal Kegiatan:** Setiap Hari Senin s/d Kamis pukul 16.00 - 17.15 WIB (TPA Sore).")
 
     with st.expander("🧑 3. Kelompok Remaja / SMP & SMA (Usia 13 - 19 Tahun)"):
         st.subheader("🎯 Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan")
-        st.write("- **Materi Utama:** Kajian Akidah Islamiyah anti-radikalisme, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.")
-        st.write("- **Program Unggulan:** Kegiatan Pencinta Alam (Camping Religi), Olahraga Memanah/Futsal Berjamaah, serta pelatihan kepengurusan Majelis Taklim Remaja.")
-        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Posko Utama.")
+        st.write("- **Materi Utama:** Pengajian Al-qur'an & Al-hadith, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.")
+        st.write("- **Program Unggulan:** Cinta Alam Indonesia (Camping Religi-CAI), Olahraga Silat ASAD/Futsal , serta pelatihan kepengurusan Remaja.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Masjid Al-fath.")
 
-    with st.expander("🧕 4. Kelompok Usia Mandiri / Mahasiswa, Pekerja & Orang Tua"):
+    with st.expander("🧕 4. Kelompok Usia Mandiri / Mahasiswa, Pekerja & Usia pra nikah"):
         st.subheader("🎯 Fokus: Kemandirian Ekonomi Syariah & Pembinaan Keluarga Sakinah")
         st.write("- **Materi Utama:** Pendalaman Kitab Hadits Shahih Bukhari-Muslim, Fiqih Muamalah (Bebas Riba & Perdagangan Syariah), serta Manajemen Rumah Tangga Islami (Parenting Jamaah).")
         st.write("- **Program Unggulan:** Workshop Kewirausahaan Umat, Baitul Maal Kelompok (Dana Usaha Mandiri), dan Konseling Keluarga Islami.")
