@@ -26,7 +26,6 @@ pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
 # MENU 1: BERANDA & AGENDA KEGIATAN
 # ==========================================
 if pilihan_menu == "🏠 Beranda & Agenda":
-    # Menggunakan gambar arsitektur masjid yang estetik dan universal dari Unsplash
     st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahmi Jamaah Bundaran Pancasila", use_container_width=True)
     st.header("📢 Pengumuman & Jadwal Kegiatan Terdekat")
     
@@ -34,7 +33,7 @@ if pilihan_menu == "🏠 Beranda & Agenda":
     st.success("🍉 **Gerakan Shodaqoh**\n\nMari salurkan infaq dan shodaqoh terbaik Anda untuk didistribusikan berupa paket makanan dan yang lain kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Bundaran Pancasila Arut Selatan.")
 
 # ==========================================
-# MENU 2: BUKU DIGITAL PROGRAM KEGIATAN & ISI DOKUMEN RESMI
+# MENU 2: BUKU DIGITAL PROGRAM KEGIATAN
 # ==========================================
 elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
     st.header("📖 Buku Digital Panduan Program Kegiatan Pengajian")
@@ -68,39 +67,11 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
     st.subheader("📥 Unduh Dokumen Kurikulum Resmi")
     st.write("Anda dapat mengunduh ringkasan buku saku digital berformat teks PDF ini untuk disimpan di perangkat smartphone Anda:")
     
-    # Memasukkan isi dokumen asli agar saat tombol unduh diklik file tidak kosong
-    isi_dokumen_riil = """
-========================================================================
-BUKU PANDUAN KURIKULUM RESMI PENGAJIAN AL-FATH BUNDARAN PANCASILA
-========================================================================
-Lokasi: Pangkalan Bun, Kotawaringin Barat, Kalimantan Tengah
-
-I. KELOMPOK PAUD (Usia 3-5 Tahun)
-- Fokus: Pembentukan Karakter & Cinta Masjid
-- Materi: Metode Tilawaty Visual, Adab Harian, Doa Pendek.
-
-II. KELOMPOK CABE RAWIT (Usia 6-12 Tahun)
-- Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah
-- Materi: Target Khatam Tilawaty menuju Al-Quran Tajwid, Juz Amma.
-
-III. KELOMPOK REMAJA (Usia 13-19 Tahun)
-- Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan
-- Materi: Al-Qur'an & Al-Hadith, Fiqih Remaja. Event: CAI & Silat ASAD.
-
-IV. KELOMPOK USIA MANDIRI (Mahasiswa, Pekerja & Usia Pra-Nikah)
-- Fokus: Kemandirian Ekonomi Syariah & Keluarga Sakinah
-- Materi: Shahih Bukhari-Muslim, Fiqih Muamalah, Parenting Jamaah.
-
-Komplek Masjid Al-Fath, Kelurahan Madurejo, Arut Selatan.
-========================================================================
-    """
-    
-       st.link_button(
+    # FIX INDENTASI: Tombol link eksternal sekarang sudah sejajar 100% dengan teks di atasnya
+    st.link_button(
         label="📥 Download Buku Panduan Kurikulum Pancasila (PDF)",
         url="https://google.com"
     )
-
-
 
 # ==========================================
 # MENU 3: SEKTOR KHIDMAT SOSIAL & SHODAQOH AIR MINUM
@@ -129,11 +100,11 @@ elif pilihan_menu == "🚰 Shodaqoh":
         if st.form_submit_button("Kirim Pengajuan"):
             if nama_pemohon and whatsapp:
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
-                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
+                payload = {"sheet": "Layanan_Air", "row": [wirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
                     if res.status_code == 200:
-                        st.success("🗣gram Pengajuan Anda berhasil dikirim! Petugas Humas Kelompok Bundaran Pancasila akan segera memverifikasi lewat WhatsApp.")
+                        st.success("🗣️ Pengajuan Anda berhasil dikirim! Petugas Humas Kelompok Bundaran Pancasila akan segera memverifikasi lewat WhatsApp.")
                     else:
                         st.error("Gagal mengirim data ke server. Mohon coba sesaat lagi.")
                 except:
