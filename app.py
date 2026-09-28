@@ -116,13 +116,13 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
 # MENU 4: LAYANAN HUBUNGI HUMAS
 # ==========================================
 elif pilihan_menu == "📞 Hubungi Humas":
-    st.header("📞 Pusat Kontak Layanan & Informasi Umat")
-    st.write("**📍 Alamat Sekretariat Fisik:**")
+    st.header("📞 Pusat Kontak Layanan")
+    st.write("**📍 Alamat Sekretariat:**")
     st.write("Kawasan Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
-    st.write("**📱 WhatsApp Humas Resmi:**")
-    st.write("+62 812-3456-7890 (Humas Kelompok Al-Fath)")
-    st.write("**✉️ Email Resmi:**")
-    st.write("info@pengajian-pancasila.org")
+    st.write("**📱 WhatsApp Humas:**")
+    st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
+    st.write("**✉️ Email:**")
+    st.write("info@pengajian-alfath-bundaran-pancasila.org")
 
 # --- FOOTER HAK CIPTA ---
 st.write("---")
