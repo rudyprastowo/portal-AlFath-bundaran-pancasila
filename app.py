@@ -4,7 +4,7 @@ from datetime import datetime
 import io
 import requests
 
-# URL Google Web App yang sudah Pak Rudy buat
+# URL Google Web App resmi Pak Rudy yang sudah terhubung ke Google Sheets
 URL_GOOGLE_SHEETS = "https://google.com"
 
 # Konfigurasi Tampilan Tab Web Browser
@@ -26,14 +26,15 @@ pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
 # MENU 1: BERANDA & AGENDA KEGIATAN
 # ==========================================
 if pilihan_menu == "🏠 Beranda & Agenda":
-    st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahim Jamaah Bundaran Pancasila", use_container_width=True)
+    # Menggunakan gambar arsitektur masjid yang estetik dan universal dari Unsplash
+    st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahmi Jamaah Bundaran Pancasila", use_container_width=True)
     st.header("📢 Pengumuman & Jadwal Kegiatan Terdekat")
     
-    st.info("🗓️ **Pengajian Rutin **\n\nHari / Waktu: Setiap Hari Senin Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Masjid Alfath Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Pengajian: Al-qur'an & Al-Hadith\n\n*Terbuka untuk seluruh jamaah dan simpatisan Pangkalan Bun.")
+    st.info("🗓️ **Pengajian Rutin**\n\nHari / Waktu: Setiap Hari Senin Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Masjid Al-Fath Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Pengajian: Al-Qur'an & Al-Hadith\n\n*Terbuka untuk seluruh jamaah dan simpatisan Pangkalan Bun.")
     st.success("🍉 **Gerakan Shodaqoh**\n\nMari salurkan infaq dan shodaqoh terbaik Anda untuk didistribusikan berupa paket makanan dan yang lain kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Bundaran Pancasila Arut Selatan.")
 
 # ==========================================
-# MENU 2: BUKU DIGITAL PROGRAM KEGIATAN
+# MENU 2: BUKU DIGITAL PROGRAM KEGIATAN & ISI DOKUMEN RESMI
 # ==========================================
 elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
     st.header("📖 Buku Digital Panduan Program Kegiatan Pengajian")
@@ -53,11 +54,11 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
 
     with st.expander("🧑 3. Kelompok Remaja / SMP & SMA (Usia 13 - 19 Tahun)"):
         st.subheader("🎯 Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan")
-        st.write("- **Materi Utama:** Pengajian Al-qur'an & Al-hadith, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.")
-        st.write("- **Program Unggulan:** Cinta Alam Indonesia (Camping Religi-CAI), Olahraga Silat ASAD/Futsal , serta pelatihan kepengurusan Remaja.")
-        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Masjid Al-fath.")
+        st.write("- **Materi Utama:** Pengajian Al-Qur'an & Al-Hadith, Fiqih Remaja (Pubertas & Thaharah), pengenalan IT/Coding dasar Islami, serta diskusi interaktif problematika remaja masa kini.")
+        st.write("- **Program Unggulan:** Cinta Alam Indonesia (Camping Religi - CAI), Olahraga Silat ASAD / Futsal, serta pelatihan kepengurusan Remaja.")
+        st.write("- **Jadwal Kegiatan:** Setiap Hari Sabtu Malam Minggu (Ba'da Isya) - Selesai di Masjid Al-Fath.")
 
-    with st.expander("🧕 4. Kelompok Usia Mandiri / Mahasiswa, Pekerja & Usia pra nikah"):
+    with st.expander("🧕 4. Kelompok Usia Mandiri / Mahasiswa, Pekerja & Usia Pra-Nikah"):
         st.subheader("🎯 Fokus: Kemandirian Ekonomi Syariah & Pembinaan Keluarga Sakinah")
         st.write("- **Materi Utama:** Pendalaman Kitab Hadits Shahih Bukhari-Muslim, Fiqih Muamalah (Bebas Riba & Perdagangan Syariah), serta Manajemen Rumah Tangga Islami (Parenting Jamaah).")
         st.write("- **Program Unggulan:** Workshop Kewirausahaan Umat, Baitul Maal Kelompok (Dana Usaha Mandiri), dan Konseling Keluarga Islami.")
@@ -66,25 +67,53 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
     st.write("---")
     st.subheader("📥 Unduh Dokumen Kurikulum Resmi")
     st.write("Anda dapat mengunduh ringkasan buku saku digital berformat teks PDF ini untuk disimpan di perangkat smartphone Anda:")
+    
+    # Memasukkan isi dokumen asli agar saat tombol unduh diklik file tidak kosong
+    isi_dokumen_riil = """
+========================================================================
+BUKU PANDUAN KURIKULUM RESMI PENGAJIAN AL-FATH BUNDARAN PANCASILA
+========================================================================
+Lokasi: Pangkalan Bun, Kotawaringin Barat, Kalimantan Tengah
+
+I. KELOMPOK PAUD (Usia 3-5 Tahun)
+- Fokus: Pembentukan Karakter & Cinta Masjid
+- Materi: Metode Tilawaty Visual, Adab Harian, Doa Pendek.
+
+II. KELOMPOK CABE RAWIT (Usia 6-12 Tahun)
+- Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah
+- Materi: Target Khatam Tilawaty menuju Al-Quran Tajwid, Juz Amma.
+
+III. KELOMPOK REMAJA (Usia 13-19 Tahun)
+- Fokus: Pemantapan Akidah, Kepemimpinan & Benteng Pergaulan
+- Materi: Al-Qur'an & Al-Hadith, Fiqih Remaja. Event: CAI & Silat ASAD.
+
+IV. KELOMPOK USIA MANDIRI (Mahasiswa, Pekerja & Usia Pra-Nikah)
+- Fokus: Kemandirian Ekonomi Syariah & Keluarga Sakinah
+- Materi: Shahih Bukhari-Muslim, Fiqih Muamalah, Parenting Jamaah.
+
+Komplek Masjid Al-Fath, Kelurahan Madurejo, Arut Selatan.
+========================================================================
+    """
+    
     st.download_button(
         label="📄 Download Buku Panduan Kurikulum Pancasila.pdf",
-        data="Dokumen contoh teks isi panduan kurikulum kurikulum pengajian Kelompok Bundaran Pancasila Pangkalan Bun tahun 2026.",
+        data=isi_dokumen_riil.strip(),
         file_name="Buku_Panduan_Program_Pengajian_Pancasila.pdf",
         mime="text/plain"
     )
 
 # ==========================================
-# MENU 3: SEKTOR KHIDMAT SOSIAL (AIR MINUM GRATIS)
+# MENU 3: SEKTOR KHIDMAT SOSIAL & SHODAQOH AIR MINUM
 # ==========================================
-elif pilihan_menu == "🚰 Sedekah Air Minum":
-    st.header("🚰 Fasilitas Penyediaan Air Minum Gratis")
+elif pilihan_menu == "🚰 Shodaqoh":
+    st.header("🚰 Fasilitas Penyediaan Air Minum Gratis & Shodaqoh Umat")
     st.write("Rasulullah SAW bersabda: *'Sedekah apa yang paling utama?' Beliau menjawab: 'Air minum.'* (HR. Abu Daud)")
     st.info("Sebagai wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
     
     col_info1, col_info2 = st.columns(2)
     with col_info1:
         st.subheader("📍 Lokasi Posko Depot")
-        st.write("Area Bundaran Pancasila, Kelurahan Sidorejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat (Kalimantan Tengah).")
+        st.write("Area Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat.")
     with col_info2:
         st.subheader("🕒 Waktu Pelayanan")
         st.write("Setiap hari Senin s/d Ahad, pukul 06.00 WIB hingga 21.00 WIB.")
@@ -104,7 +133,7 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
                     if res.status_code == 200:
-                        st.success("🗣️ Pengajuan Anda berhasil dikirim! Petugas Humas Kelompok Bundaran Pancasila akan segera memverifikasi lewat WhatsApp.")
+                        st.success("🗣gram Pengajuan Anda berhasil dikirim! Petugas Humas Kelompok Bundaran Pancasila akan segera memverifikasi lewat WhatsApp.")
                     else:
                         st.error("Gagal mengirim data ke server. Mohon coba sesaat lagi.")
                 except:
@@ -118,10 +147,10 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
 elif pilihan_menu == "📞 Hubungi Humas":
     st.header("📞 Pusat Kontak Layanan")
     st.write("**📍 Alamat Sekretariat:**")
-    st.write("Komplek Masjid Alfath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
-    st.write("**📱 WhatsApp Humas:**")
+    st.write("Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
+    st.write("**📱 WhatsApp Humas Resmi:**")
     st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
-    st.write("**✉️ Email:**")
+    st.write("**✉️ Email Resmi:**")
     st.write("info@pengajian-alfath-bundaran-pancasila.org")
 
 # --- FOOTER HAK CIPTA ---
