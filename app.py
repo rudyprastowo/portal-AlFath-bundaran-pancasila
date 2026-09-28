@@ -70,7 +70,7 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
     # FIX INDENTASI: Tombol link eksternal sekarang sudah sejajar 100% dengan teks di atasnya
     st.link_button(
         label="📥 Download Buku Panduan Kurikulum Pancasila (PDF)",
-        url="https://google.com"
+        url="https://drive.google.com/file/d/1vKmuUJZnNhne9BYxPDn-Wn1Jy7PlmK-9/view?usp=sharing"
     )
 
 # ==========================================
