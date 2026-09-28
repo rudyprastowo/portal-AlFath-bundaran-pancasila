@@ -99,7 +99,7 @@ Komplek Masjid Al-Fath, Kelurahan Madurejo, Arut Selatan.
     st.download_button(
         label="📄 Download Buku Panduan Kurikulum Pancasila.pdf",
         data=file.read(),
-        file_name="Materi PAUD dan Cabe Rawit Kelompok Bundaran Pancasila",
+        file_name="Materi PAUD dan Cabe Rawit Kelompok Bundaran Pancasila.pdf",
         mime="application/pdf"
     )
 
