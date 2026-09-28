@@ -11,62 +11,12 @@ URL_GOOGLE_SHEETS = "https://google.com"
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
 # ==========================================
-# DESAIN PREMIUM, ELEGAN, DAN LAMBANG GARUDA POJOK KANAN ATAS
+# GAYA DESAIN PREMIUM DAN LOGO GARUDA POJOK KANAN ATAS
 # ==========================================
-st.markdown("""
-    <style>
-    /* Menyuntikkan Logo Garuda Pancasila Lingkaran Emas di Pojok Kanan Atas */
-    .garuda-container {
-        position: absolute;
-        top: -60px;
-        right: 10px;
-        z-index: 999;
-    }
-    .garuda-circle {
-        width: 85px;
-        height: 85px;
-        background: white;
-        border-radius: 50%;
-        padding: 5px;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        border: 3px solid #D4AF37; /* Aksen Bingkai Emas */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .garuda-img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-    
-    /* Desain Tipografi Judul Elegan */
-    .main-title { 
-        font-family: 'Georgia', serif;
-        font-size: 26px !important; 
-        font-weight: 800; 
-        color: #1E4D2B; 
-        margin-top: 10px;
-        letter-spacing: 1px;
-    }
-    .sub-title { 
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 14px !important; 
-        color: #D4AF37; /* Subjudul Berwarna Emas Klasik */
-        font-weight: 600;
-        letter-spacing: 2px;
-        margin-bottom: 25px;
-        text-transform: uppercase;
-    }
-    </style>
-    
-    <!-- Struktur HTML untuk Memasang Garuda -->
-    <div class="garuda-container">
-        <div class="garuda-circle">
-            <img class="garuda-img" src="https://wikimedia.org" alt="Garuda Pancasila">
-        </div>
-    </div>
-""", unsafe_allowed_html=True)
+# Menggunakan struktur satu baris yang sangat rapat agar terhindar dari TypeError pembacaan string
+st.markdown('<div style="position: absolute; top: -60px; right: 10px; z-index: 999;"><div style="width: 85px; height: 85px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); border: 3px solid #D4AF37; display: flex; align-items: center; justify-content: center;"><img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;" alt="Garuda Pancasila"></div></div>', unsafe_allowed_html=True)
+
+st.markdown('<style>.main-title { font-family: "Georgia", serif; font-size: 26px !important; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px; } .sub-title { font-family: "Helvetica Neue", sans-serif; font-size: 14px !important; color: #D4AF37; font-weight: 600; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }</style>', unsafe_allowed_html=True)
 
 # --- HEADER UTAMA WEBSITE ---
 st.markdown('<div class="main-title">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</div>', unsafe_allowed_html=True)
@@ -157,7 +107,7 @@ elif pilihan_menu == "🚰 Shodaqoh":
         if st.form_submit_button("Kirim Pengajuan"):
             if nama_pemohon and whatsapp:
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
-                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
+                payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, Visualisasi, jumlah_butuh]}
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
                     if res.status_code == 200:
@@ -177,3 +127,10 @@ elif pilihan_menu == "📞 Hubungi Humas":
     st.write("**📍 Alamat Sekretariat:**")
     st.write("Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
     st.write("**📱 WhatsApp Humas Resmi:**")
+    st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
+    st.write("**✉️ Email Resmi:**")
+    st.write("info@pengajian-alfath-bundaran-pancasila.org")
+
+# --- FOOTER HAK CIPTA ---
+st.write("---")
+st.caption("© 2026 Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun. All Rights Reserved.")
