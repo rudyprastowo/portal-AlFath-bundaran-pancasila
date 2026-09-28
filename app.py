@@ -11,14 +11,13 @@ URL_GOOGLE_SHEETS = "https://google.com"
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
 # ==========================================
-# HEADER UTAMA WEBSITE DENGAN KOLOM SEJAJAR (FIXED COLUMNS)
+# HEADER UTAMA WEBSITE DENGAN KOLOM SEJAJAR
 # ==========================================
-# FIX UTAMA: Memberikan parameter (2) secara tegas agar terhindar dari TypeError pembagian layar
 col_judul, col_garuda = st.columns(2)
 
 with col_judul:
-    st.markdown('<h2 style="font-family: Georgia, serif; font-size: 24px; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px;">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</h2>', unsafe_allowed_html=True)
-    st.markdown('<h5 style="font-family: Arial, sans-serif; font-size: 13px; color: #D4AF37; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</h5>', unsafe_allowed_html=True)
+    st.markdown('<h2 style="font-family: Georgia, serif; font-size: 24px; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px;">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</h2>', unsafe_allow_html=True)
+    st.markdown('<h5 style="font-family: Arial, sans-serif; font-size: 13px; color: #D4AF37; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</h5>', unsafe_allow_html=True)
 
 with col_garuda:
     # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi secara stabil
@@ -28,7 +27,7 @@ with col_garuda:
                 <img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;">
             </div>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
 # --- MENU NAVIGASI BANNER UTAMA ---
 pilihan_menu = st.sidebar.radio("Navigasi Portal Publik:", [
@@ -117,12 +116,12 @@ elif pilihan_menu == "🚰 Shodaqoh":
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
                 payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
                 try:
-                    res = requests.post(URL_GOOGLE_SHEETS, json=payload)
+                    res = requests.post(URL_GOOGLE_SHEETS, json=payload, timeout=15)
                     if res.status_code == 200:
                         st.success("🗣️ Pengajuan Anda berhasil dikirim! Petugas Humas Kelompok Bundaran Pancasila akan segera memverifikasi lewat WhatsApp.")
                     else:
                         st.error("Gagal mengirim data ke server. Mohon coba sesaat lagi.")
-                except:
+                except Exception:
                     st.error("Terjadi masalah jaringan internet.")
             else:
                 st.warning("Mohon isi kolom Nama dan Nomor WhatsApp Anda terlebih dahulu.")
