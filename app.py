@@ -10,19 +10,21 @@ URL_GOOGLE_SHEETS = "https://google.com"
 # Konfigurasi Tampilan Tab Web Browser
 st.set_page_config(page_title="Portal Pengajian Pancasila Pangkalan Bun", page_icon="🕌", layout="centered")
 
-# --- HEADER UTAMA WEBSITE DENGAN KOLOM GARUDA SEJAJAR ---
-col_judul, col_garuda = st.columns([5, 1])
+# ==========================================
+# HEADER UTAMA WEBSITE DENGAN KOLOM SEJAJAR (FIXED COLUMNS)
+# ==========================================
+# FIX: Memberikan angka parameter 2 kolom secara jelas agar terhindar dari TypeError
+col_judul, col_garuda = st.columns([4, 1])
 
 with col_judul:
-    st.markdown('<style>.main-title { font-family: "Georgia", serif; font-size: 26px !important; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px; } .sub-title { font-family: "Helvetica Neue", sans-serif; font-size: 14px !important; color: #D4AF37; font-weight: 600; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }</style>', unsafe_allowed_html=True)
-    st.markdown('<div class="main-title">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</div>', unsafe_allowed_html=True)
-    st.markdown('<div class="sub-title">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</div>', unsafe_allowed_html=True)
+    st.markdown('<h2 style="font-family: Georgia, serif; font-size: 24px; font-weight: 800; color: #1E4D2B; margin-top: 10px; letter-spacing: 1px;">🕌 PORTAL INFORMASI AL-FATH BUNDARAN PANCASILA</h2>', unsafe_allowed_html=True)
+    st.markdown('<h5 style="font-family: Arial, sans-serif; font-size: 13px; color: #D4AF37; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Kelompok Al-Fath Bundaran Pancasila - Pangkalan Bun</h5>', unsafe_allowed_html=True)
 
 with col_garuda:
-    # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi
+    # Memasang Lambang Garuda Pancasila Lingkaran Emas Resmi tanpa CSS Eksternal yang rawan eror
     st.markdown("""
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-            <div style="width: 80px; height: 85px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); border: 3px solid #D4AF37; display: flex; align-items: center; justify-content: center;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+            <div style="width: 75px; height: 75px; background: white; border-radius: 50%; padding: 5px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); border: 2.5px solid #D4AF37; display: flex; align-items: center; justify-content: center;">
                 <img src="https://wikimedia.org" style="width: 100%; height: auto; object-fit: contain;">
             </div>
         </div>
@@ -113,7 +115,6 @@ elif pilihan_menu == "🚰 Shodaqoh":
         if st.form_submit_button("Kirim Pengajuan"):
             if nama_pemohon and whatsapp:
                 waktu_kirim = datetime.now().strftime("%Y-%m-%d %H:%M")
-                # FIX: Variabel diperbaiki menjadi waktu_kirim (bukan Visualisasi) agar form sukses terkirim ke Sheets
                 payload = {"sheet": "Layanan_Air", "row": [waktu_kirim, nama_pemohon, whatsapp, tujuan_acara, jumlah_butuh]}
                 try:
                     res = requests.post(URL_GOOGLE_SHEETS, json=payload)
