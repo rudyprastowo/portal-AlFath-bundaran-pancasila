@@ -29,8 +29,8 @@ if pilihan_menu == "🏠 Beranda & Agenda":
     st.image("https://unsplash.com", caption="Dokumentasi Kegiatan Silaturahim Jamaah Bundaran Pancasila", use_container_width=True)
     st.header("📢 Pengumuman & Jadwal Kegiatan Terdekat")
     
-    st.info("🗓️ **Pengajian Rutin **\n\nHari / Waktu: Setiap Hari Ahad Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Sekretariat Utama Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Pengajian: Al-qur'an & Al-Hadith\n\n*Terbuka untuk seluruh jamaah dan simpatisan Pangkalan Bun.")
-    st.success("🍉 **Gerakan Shodaqoh**\n\nMari salurkan infaq dan shodaqoh terbaik Anda untuk didistribusikan berupa paket makanan dan yang lain kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Arut Selatan.")
+    st.info("🗓️ **Pengajian Rutin **\n\nHari / Waktu: Setiap Hari Senin Malam Senin (Ba'da Maghrib - Selesai)\n\nTempat: Masjid Alfath Kelompok Bundaran Pancasila, Pangkalan Bun\n\nMateri Pengajian: Al-qur'an & Al-Hadith\n\n*Terbuka untuk seluruh jamaah dan simpatisan Pangkalan Bun.")
+    st.success("🍉 **Gerakan Shodaqoh**\n\nMari salurkan infaq dan shodaqoh terbaik Anda untuk didistribusikan berupa paket makanan dan yang lain kepada para pekerja jalanan, dhuafa, dan musafir di sekitar kawasan Bundaran Pancasila Arut Selatan.")
 
 # ==========================================
 # MENU 2: BUKU DIGITAL PROGRAM KEGIATAN
@@ -118,7 +118,7 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
 elif pilihan_menu == "📞 Hubungi Humas":
     st.header("📞 Pusat Kontak Layanan")
     st.write("**📍 Alamat Sekretariat:**")
-    st.write("Kawasan Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
+    st.write("Komplek Masjid Alfath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
     st.write("**📱 WhatsApp Humas:**")
     st.write("+62 822-5552-2986 (Humas Kelompok Al-Fath)")
     st.write("**✉️ Email:**")
