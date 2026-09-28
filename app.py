@@ -74,7 +74,7 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
         st.markdown('<div class="tier-title">🎯 Fokus: Kelancaran Membaca Al-Quran & Praktek Ibadah</div>', unsafe_allowed_html=True)
         st.write("""
         *   **Materi Utama:** Target khatam Iqra menuju Al-Quran tajwid praktis, hafalan Juz Amma (Juz 30), tata cara berwudhu, dan gerakan shalat fardhu secara mandiri.
-        *   **Program Unggulan:** *Pesantren Kilat Liburan Sekolah* dan Simulasi Manasik Haji Anak di area luar lapangan Bundaran Pancasila.
+        *   **Program Unggulan:** Pesantren Kilat Liburan Sekolah dan Simulasi Manasik Haji Anak di area luar lapangan Bundaran Pancasila.
         *   **Jadwal Kegiatan:** Setiap Hari Senin s/d Kamis pukul 16.00 - 17.15 WIB (TPA Sore).
         """)
 
@@ -115,7 +115,7 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
     col_info1, col_info2 = st.columns(2)
     with col_info1:
         st.subheader("📍 Lokasi Posko Depot")
-        st.write("Area Bundaran Pancasila, Kelurahan Sidorejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat (Kalimantan Tengah).")
+        st.write("Area Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kotawaringin Barat (Kalimantan Tengah).")
     with col_info2:
         st.subheader("🕒 Waktu Pelayanan")
         st.write("Setiap hari Senin s/d Ahad, pukul 06.00 WIB hingga 21.00 WIB.")
@@ -146,8 +146,8 @@ elif pilihan_menu == "🚰 Sedekah Air Minum":
 # ==========================================
 # MENU 4: LAYANAN HUBUNGI HUMAS
 # ==========================================
-elif menu == "📞 Hubungi Humas":
-    st.markdown('<div class="section-header">📞 Pusat Kontak Layanan & Information Umat</div>', unsafe_allowed_html=True)
+elif pilihan_menu == "📞 Hubungi Humas":
+    st.markdown('<div class="section-header">📞 Pusat Kontak Layanan & Informasi Umat</div>', unsafe_allowed_html=True)
     st.markdown("""
     <div class="info-card">
         <p><b>📍 Alamat Sekretariat Fisik:</b><br>
