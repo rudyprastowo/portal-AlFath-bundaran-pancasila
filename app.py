@@ -43,7 +43,7 @@ st.markdown("""
     /* Desain Tipografi Judul Elegan */
     .main-title { 
         font-family: 'Georgia', serif;
-        font-size: 28px !important; 
+        font-size: 26px !important; 
         font-weight: 800; 
         color: #1E4D2B; 
         margin-top: 10px;
@@ -51,30 +51,12 @@ st.markdown("""
     }
     .sub-title { 
         font-family: 'Helvetica Neue', sans-serif;
-        font-size: 15px !important; 
+        font-size: 14px !important; 
         color: #D4AF37; /* Subjudul Berwarna Emas Klasik */
         font-weight: 600;
         letter-spacing: 2px;
         margin-bottom: 25px;
         text-transform: uppercase;
-    }
-    
-    /* Desain Kartu Informasi Mewah */
-    .luxury-card { 
-        background-color: #ffffff; 
-        padding: 24px; 
-        border-radius: 12px; 
-        border-left: 6px solid #1E4D2B; 
-        margin-bottom: 20px; 
-        box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-        border-top: 1px solid #f1f1f1;
-        border-right: 1px solid #f1f1f1;
-        border-bottom: 1px solid #f1f1f1;
-    }
-    .luxury-card h4 {
-        color: #1E4D2B;
-        font-weight: 700;
-        margin-bottom: 10px;
     }
     </style>
     
@@ -140,12 +122,12 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
         st.write("- **Jadwal Kegiatan:** Setiap Hari Ahad Pagi (Pukul 08.00 - 10.00 WIB) & Ahad Malam Senin.")
 
     st.write("---")
-    st.subheader("📥 Unduh Dokumen Kurikulum")
+    st.subheader("📥 Unduh Dokumen Kurikulum Resmi")
     st.write("Anda dapat mengunduh ringkasan buku saku digital berformat teks PDF ini untuk disimpan di perangkat smartphone Anda:")
     
     st.link_button(
-        label="📥 Download Buku Panduan Kurikulum PAUD & Cabe Rawit (PDF)",
-        url="https://drive.google.com/file/d/1vKmuUJZnNhne9BYxPDn-Wn1Jy7PlmK-9/view?usp=sharing"
+        label="📥 Download Buku Panduan Kurikulum Pancasila (PDF)",
+        url="https://google.com"
     )
 
 # ==========================================
@@ -154,7 +136,7 @@ elif pilihan_menu == "📖 Buku Digital Program Kegiatan":
 elif pilihan_menu == "🚰 Shodaqoh":
     st.header("🚰 Fasilitas Penyediaan Air Minum Gratis & Shodaqoh Umat")
     st.write("Rasulullah SAW bersabda: *'Sedekah apa yang paling utama?' Beliau menjawab: 'Air minum.'* (HR. Abu Daud)")
-    st.info("Sebagai wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
+    st.info("Asal wujud nyata pengabdian kepada masyarakat Pangkalan Bun, Kelompok Bundaran Pancasila menyediakan posko depot air minum higienis gratis di area luar sekretariat. Fasilitas ini ditujukan bebas bagi para musafir, pengemudi ojek online, pedagang kaki lima, petugas kebersihan, maupun warga sekitar yang melintas.")
     
     col_info1, col_info2 = st.columns(2)
     with col_info1:
@@ -185,3 +167,13 @@ elif pilihan_menu == "🚰 Shodaqoh":
                 except:
                     st.error("Terjadi masalah jaringan internet.")
             else:
+                st.warning("Mohon isi kolom Nama dan Nomor WhatsApp Anda terlebih dahulu.")
+
+# ==========================================
+# MENU 4: LAYANAN HUBUNGI HUMAS
+# ==========================================
+elif pilihan_menu == "📞 Hubungi Humas":
+    st.header("📞 Pusat Kontak Layanan")
+    st.write("**📍 Alamat Sekretariat:**")
+    st.write("Komplek Masjid Al-Fath Bundaran Pancasila, Kelurahan Madurejo, Kecamatan Arut Selatan, Pangkalan Bun, Kabupaten Kotawaringin Barat, Kalimantan Tengah.")
+    st.write("**📱 WhatsApp Humas Resmi:**")
